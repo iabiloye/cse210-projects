@@ -1,0 +1,63 @@
+What does the program do?
+    Journal app that can people with a simple prompt to respond to every day and also help record the responses. 
+
+How to Achieve this:
+
+Inputs:
+    1. select the desired option such as "write" or "save"
+    2. Press enter
+
+Outputs:
+    1. By pressing enter, A prompt text will be displayed for the user to respond 
+    2. Iterate through all entries in the journal and display them on the screen
+    3. Prompt the user for a filename and then save the current journal
+    4. By typing "quit", the program will finish.
+    5. Provide a menu that allows the user to choose these options
+
+When does it end?
+    When the user types "quit" the program stop and save the information.
+
+CLASSES:
+     Main Menu Class: class mainMenu==== needs to display the menu options and take input from the user sto launch the class
+                                        based on the option the user selects to exit the program when the user desires
+    Journal class: keep track of the Journal and entries. It will hide the words and display the rendered Journal.
+             class: Convert the first letter of the string _response to a capital letter
+           example: Date: 04/01/2023 - Prompt: You did your journey today?
+                                      Yes, this day was amazing.
+    Class CreateJournalEntry Called by WriteJournalEntry to convert journal entry to a list containing [CurrentDate, JournalPrompt, JournalText] 
+                             The list will be string-based so CurrentDate will be converted to a string.
+
+    program class: Get from the user the name and assign it to the propriety _name
+
+Journal - Behaviors:
+    class system _string to give a list of items
+    Class WriteJournalEntry ======= Get the current date from the user computer Call GenerateJournalPrompt to display Journal Prompt for the user 
+    Save journal prompt to variable Display journal prompt to user Get input from user Store input in variable Return each variable
+            - Add entry
+            - Display all entries
+            - Save to a file
+            - Load from a file
+    Class CreateUserJournal === create a list of each JournalEntry list
+          Objects:
+            _entries (List)
+    Display all the jobs(information for each element) in the list _of jobs
+    class System.String
+    Entry. display
+    Class LoadJournal === Let the user enter the file name Load the journal from the file store text in UserJournal List
+
+   
+
+
+Entry - Behaviors:
+            - Display Entry Details
+        Objects:
+            _response (string)
+            _date (string)
+            _prompt (string)
+    Class CreateJournalEntry ==== Called by WriteJournalEntry to convert journal entry to a list containing [CurrentDate, JournalPrompt, JournalText] The list will be string-based so CurrentDate will be converted to a string.
+
+    Class DisplayJournal ==== Iterate through the UserJournal to pull out each JournalEntry, then will assign the elements of the journal to a variable and display them on the screen.
+    Class LoadJournal === Let the user enter the file name Load the journal from the file store text in UserJournal List
+    Class SaveJournal  === Saves all data to a file giving the user option to name the file
+
+JournalPrompts === Required Randomly select a journal prompt for the user Return Journal Prompt
