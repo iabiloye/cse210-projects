@@ -1,65 +1,59 @@
-using System;
-
-//Public class to can use in "other window"
 public class Word
+{
+
+
+    public void GetCompletePhase(string completePhase, List<string> list, bool condition, string reference)
     {
+        Console.WriteLine($"The original phase: {completePhase}");
 
-        //Method to get the complete phase
-        public void GetCompletePhase(string completePhase, List<string> list, bool condition, string reference)
+
+        while (list.Any(s => !s.All(c => c == '-')) && condition)
         {
-            Console.WriteLine($"The original phase: {completePhase}");
+            Random rnd = new Random();
+            int index = rnd.Next(0, list.Count);
+            string word = list[index];
 
-            //Loop to continue changing letters to "-" until the condition become true (all the words with "-")
-            while (list.Any(s => !s.All(c => c == '-')) && condition)
+            Console.WriteLine("Please, press 'Enter' to continue or 'Exit' to quit.");
+            string response = Console.ReadLine().ToLower();
+
+            string newWord = "";
+
+
+            for (int i = 0; i < word.Length; i++)
             {
-                Random rnd = new Random();
-                int index = rnd.Next(0, list.Count);
-                string word = list[index];
+            
+                newWord += "-";
+            }
 
-                Console.WriteLine("Please, press 'Enter' to continue or 'Exit' to quit.");
-                string response = Console.ReadLine().ToLower();
+            list[index] = newWord;
 
-                string newWord = "";
+            string ultimatePhase = string.Empty;
 
-                //For letter inside the word
-                for (int i = 0; i < word.Length; i++)
-                {
-                    //Change to "-"
-                    newWord += "-";
-                }
+            for (int i = 0; i < list.Count; i++)
+            {
+                ultimatePhase += list[i].ToString() + " ";
+            }
 
-                list[index] = newWord;
+            string completeQuote = $"The current phase: {reference} {ultimatePhase}";
 
-                string ultimatePhase = string.Empty;
+            if (response != "exit")
+            {
+                Console.Clear();
+                Console.WriteLine(completeQuote);
+            }
+            else
+            {
 
-                //For each word inside the phase
-                for (int i = 0; i < list.Count; i++)
-                {
-                    ultimatePhase += list[i].ToString() + " ";
-                }
+                Console.WriteLine("");
+            }
 
-                string completeQuote = $"The current phase: {reference} {ultimatePhase}";
-
-                //If the user put "exit" in the input
-                if (response != "exit")
-                {
-                    //Clean the console and get the current phase
-                    Console.Clear();
-                    Console.WriteLine(completeQuote);
-                }
-                else
-                {
-                    //"Apply" enter
-                    Console.WriteLine("");
-                }
-
-                //Whe the user put exit, finish the loop
-                if (response == "exit")
-                {
-                    condition = false;
-                }
+            //Whe the user put exit, finish the loop
+            if (response == "exit")
+            {
+                condition = false;
             }
         }
-
-
     }
+
+
+}

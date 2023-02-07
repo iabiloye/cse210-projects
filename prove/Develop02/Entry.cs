@@ -13,7 +13,7 @@ public class Entry
         Console.WriteLine($"Date: {_date} - Prompt: {_message}");
         //Convert the fist letter of the string _resonse to capital letter
         Console.WriteLine(char.ToUpper(_response[0]) + _response.Substring(1));
-        //exaample: 
+        
         //Date: 04/01/2023 - Prompt: You did your journay today?
         //Yes, this day was amazing.
 
